@@ -44,6 +44,11 @@
     align-items: stretch;
     text-align: center;
 
+    > img{
+      align-self: center;
+      margin-bottom: 1.5rem;
+    }
+
     .login-info{
       margin: 3.0rem 0;
 
@@ -54,10 +59,6 @@
         font-weight: 500;
         cursor: pointer;
       }
-    }
-
-    > img{
-      align-self: center;
     }
 
     h2{
