@@ -43,6 +43,7 @@ Lembrando que será necessário criar uma conta no Firebase e um projeto para di
 ## Extras (desafios do evento)
 - Segurança e permissões de acesso
 - Responsividade
+- PWA (Progressive Web App)
 
 
 ## Licença
