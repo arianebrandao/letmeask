@@ -15,7 +15,7 @@ import { useAuth } from '../hooks/useAuth';
 
 export function Home(){
   const history = useHistory();
-  const { signInWithGoogle, user } = useAuth();
+  const { signInWithGoogle, user, signOutWithGoogle } = useAuth();
   const [roomCode, setRoomCode] = useState('');
 
   async function handleCreateRoom(){
@@ -24,13 +24,15 @@ export function Home(){
     }
 
     history.push('/rooms/new');
-    toast.success("Login realizado com sucesso");
+    toast.success("Tudo certo, você já pode criar uma sala");
   }
 
   async function handleJoinRoom(event: FormEvent){
     event.preventDefault();
 
     if(roomCode.trim() === ''){
+      toast.error("Digite o código da sala");
+
       return;
     }
 
@@ -48,6 +50,13 @@ export function Home(){
     history.push(`/rooms/${roomCode}`);
   }
 
+  async function handleSignOut(){
+    await signOutWithGoogle();
+
+    history.push(`/`);
+    toast.success("Deslogado com sucesso");
+  }
+
   return(
     <div id="page-auth">
       <aside>
@@ -59,10 +68,17 @@ export function Home(){
         <Toaster/>
         <div className="main-content">
           <img src={logoImg} alt="Letmeask" />
-          <button onClick={handleCreateRoom} className="create-room">
-            <img src={googleIconImg} alt="Logo do Google" />
-            Crie sua sala com o Google
-          </button>
+
+            { user &&
+              <div className="login-info">
+                Se você não é {user.name}, <button type="button" onClick={handleSignOut}>clique aqui</button>.
+              </div>
+            }
+            <button onClick={handleCreateRoom} className="create-room">
+              <img src={googleIconImg} alt="Logo do Google" />
+              Crie sua sala com o Google
+            </button>
+
           <div className="separator">ou entre em uma sala</div>
           <form onSubmit={handleJoinRoom}>
             <input

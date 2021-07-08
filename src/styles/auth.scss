@@ -44,6 +44,18 @@
     align-items: stretch;
     text-align: center;
 
+    .login-info{
+      margin: 3.0rem 0;
+
+      > button{
+        background: transparent;
+        border: 0;
+        text-decoration: underline;
+        font-weight: 500;
+        cursor: pointer;
+      }
+    }
+
     > img{
       align-self: center;
     }
@@ -82,7 +94,7 @@
   }
 
   .create-room{
-    margin-top: 64px;
+    //margin-top: 64px;
     height: 50px;
     border-radius: 8px;
     font-weight: 500;
