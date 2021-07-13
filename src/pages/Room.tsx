@@ -19,7 +19,7 @@ type RoomParams = {
 
 export function Room(){
   const history = useHistory();
-  const { user, signInWithGoogle } = useAuth();
+  const { user, signInWithGoogle, signOutWithGoogle } = useAuth();
   const params = useParams<RoomParams>();
   const [newQuestion, setNewQuestion] = useState('');
   const roomId = params.id;
@@ -92,12 +92,28 @@ export function Room(){
     }
   }
 
+  async function handleSignOut(){
+    await signOutWithGoogle();
+
+    history.push(`/`);
+    toast.success("Deslogado com sucesso");
+  }
+
   return(
     <div id="page-room">
       <header>
         <div className="content">
           <Link to="/"><img src={LogoImg} alt="Letmeask" /></Link>
-          <RoomCode code={roomId} />
+          <div>
+            <RoomCode code={roomId} />
+            { user && (
+              <>
+                <Button onClick={() => history.push(`/list-rooms`)}>Listar minhas salas</Button>
+                <Button isOutlined onClick={handleSignOut}>Deslogar</Button>
+              </>
+            )}
+
+          </div>
         </div>
       </header>
       <main>

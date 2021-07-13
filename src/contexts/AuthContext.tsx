@@ -63,6 +63,11 @@ export function AuthContextProvider(props: AuthContextProviderProps){
 
   async function signOutWithGoogle(){
     await auth.signOut();
+    setUser({
+      id: '',
+      name: '',
+      avatar: ''
+    });
   }
 
   return (

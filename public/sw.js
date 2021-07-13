@@ -1,11 +1,9 @@
-var CACHE_NAME = 'letmeask-app';
+var CACHE_NAME = 'letmeaskapp';
 
 var urlsToCache = [
     '/',
-    '/static/js/bundle.js',
-    '/static/js/main.chunk.js',
-    '/static/js/1.chunk.js',
-    '/static/js/0.chunk.js',
+    '/static/js/2.9ab3b4b9.chunk.js',
+    '/static/js/main.144fa653.chunk.js',
     '/favicon.ico'
 ];
 

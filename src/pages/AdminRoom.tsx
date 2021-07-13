@@ -25,7 +25,7 @@ export function AdminRoom(){
   const history = useHistory();
   const params = useParams<RoomParams>();
   const roomId = params.id;
-  const {user} = useAuth();
+  const {user, signOutWithGoogle} = useAuth();
 
   const { title, questions, authorId } = useRoom(roomId);
 
@@ -84,6 +84,13 @@ export function AdminRoom(){
     });
   }
 
+  async function handleSignOut(){
+    await signOutWithGoogle();
+
+    history.push(`/`);
+    toast.success("Deslogado com sucesso");
+  }
+
   return(
     <div id="page-room">
       <header>
@@ -91,9 +98,15 @@ export function AdminRoom(){
           <Link to="/"><img src={LogoImg} alt="Letmeask" /></Link>
           <div>
             <RoomCode code={roomId} />
-            <Button isOutlined onClick={handleEndRoom} >Encerrar sala</Button>
-          </div>
+            { user && (
+              <>
+                <Button onClick={() => history.push(`/list-rooms`)}>Listar minhas salas</Button>
+                <Button isOutlined onClick={handleEndRoom}>Encerrar sala</Button>
+                <Button isOutlined onClick={handleSignOut}>Deslogar</Button>
+              </>
+            )}
 
+          </div>
         </div>
       </header>
       <main>

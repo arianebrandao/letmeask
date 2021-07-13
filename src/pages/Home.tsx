@@ -69,11 +69,12 @@ export function Home(){
         <div className="main-content">
           <img src={logoImg} alt="Letmeask" />
 
-            { user &&
+            { user?.name &&
               <div className="login-info">
                 Se você não é {user.name}, <button type="button" onClick={handleSignOut}>clique aqui</button>.
               </div>
             }
+
             <button onClick={handleCreateRoom} className="create-room">
               <img src={googleIconImg} alt="Logo do Google" />
               Crie sua sala com o Google
