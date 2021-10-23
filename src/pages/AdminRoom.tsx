@@ -15,7 +15,8 @@ import { RoomCode } from '../components/RoomCode';
 import { useRoom } from '../hooks/useRoom';
 import { useAuth } from '../hooks/useAuth';
 
-import '../styles/room.scss'
+import '../styles/room.scss';
+import 'balloon-css';
 
 type RoomParams = {
   id: string;
@@ -129,23 +130,28 @@ export function AdminRoom(){
                 {!question.isAnswered && (
                   <>
                     <button
-                      className=""
                       type="button"
                       onClick={() => handleCheckQuestionAsAnswered(question.id)}
+                      aria-label="Marcar pergunta como respondida"
+                      data-balloon-pos="up"
                     >
                       <img src={checkImg} alt="Marcar pergunta como respondida" />
                     </button>
                     <button
                       type="button"
                       onClick={() => handleHighlightQuestion(question.id)}
+                      aria-label="Dar destaque à pergunta"
+                      data-balloon-pos="up"
                     >
-                      <img src={answerImg} alt="Dar destaque à pergunta" />
+                      <img src={answerImg} alt="" />
                     </button>
                   </>
                 )}
                 <button
                   type="button"
                   onClick={() => handleDeleteQuestion(question.id)}
+                  aria-label="Remover pergunta"
+                  data-balloon-pos="up"
                 >
                   <img src={deleteImg} alt="Remover pergunta" />
                 </button>
