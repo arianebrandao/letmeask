@@ -8,9 +8,6 @@
   <img alt="Letmeask app" src=".github/app.png" width="100%">
 </p>
 
-## Teste o app online
-Link para essa aplicação: [https://letmeask-13eea.web.app](https://letmeask-13eea.web.app)
-
 ## Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
