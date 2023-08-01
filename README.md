@@ -27,6 +27,10 @@ Esse projeto foi desenvolvido durante o curso gratuito de ReactJS na semana [NLW
 
 O letmeask é um app que auxilia na interação com sua audiência para responder perguntas.
 
+## App online para testar
+
+App online: [https://letmeask-13eea.web.app/](https://letmeask-13eea.web.app/). Front-end e back-end hospedados no [Firebase da Google](https://firebase.google.com/).
+
 ## Layout
 
 Você pode visualizar o layout do projeto através [desse link](https://www.figma.com/file/kKqwsdD49oav5ZW2yg52h0/Letmeask-Copy). É necessário ter conta no [Figma](http://figma.com/) para acessá-lo.
